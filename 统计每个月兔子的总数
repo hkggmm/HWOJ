@@ -1,0 +1,20 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int m;
+    while(cin>>m){
+        int a = 1, b = 0, c = 0; //a为一个月大的兔子数，b为两个月大的兔子数，c为3个月大的兔子数
+        while(--m)
+        {
+            c += b;
+            b = a;
+            a = c;
+        }
+        cout<< a + b + c << endl;
+    }
+    
+    return 0;
+}
