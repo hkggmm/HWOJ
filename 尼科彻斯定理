@@ -1,0 +1,16 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main()
+{
+    int m;
+    while(cin>>m){
+        int s = m * m + 1 - m; //根据数学可推导出首项为m^2+m-1
+        cout<<s;
+        for(int i = 1; i < m; i++)
+            cout<<'+'<<s+2*i;
+        cout<<endl;
+    }
+    return 0;
+}
