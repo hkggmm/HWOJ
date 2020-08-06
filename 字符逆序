@@ -1,0 +1,31 @@
+#include <iostream>
+#include <string>
+#include<bits/stdc++.h>
+using namespace std;
+
+//string自带函数 
+int main()
+{
+    string s1;
+    
+    while(getline(cin,s1))
+    {
+        reverse(s1.begin(),s1.end());
+        cout<<s1<<endl;
+    }
+    return 0;
+}
+
+//字符指针做法
+#include<stdio.h>
+using namespace std;
+
+int main()
+{
+    char c[1000];
+    gets(c);
+    for(int i = strlen(c) - 1; i >= 0; i--)
+        cout<<c[i];
+    
+    return 0;
+}
