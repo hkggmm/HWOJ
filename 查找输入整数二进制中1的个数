@@ -1,0 +1,19 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main()
+{
+    int n;
+    while(cin>>n){
+        int count = 0;
+        while(n != 0){
+            if(n & 1)       //与操作计算1的个数
+                count ++;
+            n >>= 1;        //利用右移操作
+        }
+        cout<<count<<endl;
+    }
+    
+    return 0;
+}
