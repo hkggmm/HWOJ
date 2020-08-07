@@ -1,0 +1,38 @@
+#include <iostream>
+
+using namespace std;
+
+//两个循环实现
+
+int count(int n)
+{
+    int sum = 0;
+    for(int i = 1; i < n; i++)
+    {
+        if(n % i == 0)
+            sum += i;
+    }
+    if(sum == n)
+        return 1;
+    else 
+        return 0;
+}
+
+int main()
+{
+    int n;
+    
+    while(cin>>n)
+    {
+        int total = 0;
+        if(n > 0 && n <= 50000)
+        {
+            for(int i = 1; i <= n; i++)
+                total += count(i);
+            cout<<total<<endl;
+        }
+        else
+            cout<<-1<<endl;
+    }
+    return 0;
+}
