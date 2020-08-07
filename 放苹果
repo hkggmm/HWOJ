@@ -1,0 +1,27 @@
+#include <iostream>
+
+using namespace std;
+
+//两种情况，1有盘子为空，2所有盘子都有苹果
+//1的情况下有盘子为空，即(m,n)问题转化成(m,n-1)
+//2的情况下每个盘子都有苹果，即(m,n)问题转化成(m-n,n)
+
+int dp(int m, int n)
+{
+    if(m < 0 || n < 0)
+        return 0;
+    else if(m == 1 || n == 1)
+        return 1;
+    else 
+        return dp(m, n - 1) + dp(m - n, n);
+}
+
+int main()
+{
+    int m,n;
+    while(cin>>m>>n)
+    {
+        cout<<dp(m,n)<<endl;
+    }
+    return 0;
+}
