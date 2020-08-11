@@ -1,0 +1,26 @@
+#include <vector>
+#include <string>
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    string s;
+    vector<char> temp;
+    while(getline(cin, s)){
+        temp.clear();
+        for(int i = 0; i < 26; i++){
+            for(int j = 0; j < s.size(); j++){
+                if(s[j] - 'a' == i || s[j] - 'A' == i)
+                    temp.push_back(s[j]);
+            }
+        }
+        for(int i = 0, k = 0; i < s.size() && k < temp.size(); i++){
+            if((s[i] >= 'a' && s[i] <= 'z')||(s[i] >= 'A' && s[i] <= 'Z'))
+                s[i] = temp[k++];
+        }
+        cout << s << endl;
+    }
+    return 0;
+}
