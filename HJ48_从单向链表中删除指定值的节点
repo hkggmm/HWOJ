@@ -1,0 +1,63 @@
+#include <iostream>
+
+using namespace std;
+
+struct ListNode
+{
+    int       val;
+    ListNode* next;
+};
+
+int main()
+{
+    int n, head_val;
+    while(cin>> n >> head_val){
+        ListNode *p, *q, *head = new ListNode;
+        head -> val = head_val;
+        head -> next = NULL;
+        q = head;
+        for(int i = 0; i < n - 1; i++){
+            //建立链表操作
+            int x,y;
+            cin>> x >> y; //在y值后插入x这个值
+            p = new ListNode;
+            p->val = x;
+            p->next = NULL;
+            while(q){
+                if(q->val == y){    //插入节点的操作并无考虑重复的值的情况
+                    p->next = q->next;
+                    q->next = p;
+                    break;
+                }else
+                    q = q->next;
+            }
+            q = head;
+        }
+        //删除操作
+        int denum;
+        cin>>denum;
+        q = head;
+        while(q){
+            if(q->val == denum){
+                if(q == head){
+                    head = q->next;
+                    delete q;
+                }else{
+                    p->next = q->next;
+                    delete q;
+                }
+                break;
+            }else{
+                p = q;
+                q = q->next;
+            }
+        }
+        q = head;
+        while(q){
+            cout<< q->val << ' ';
+            q = q->next;
+        }
+        cout<<endl;
+    }
+    return 0;
+}
