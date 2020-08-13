@@ -1,0 +1,35 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main()
+{
+    int x,y,z;
+    while(cin>>x>>y>>z){
+        vector<vector<int>> a(x,vector<int>(y,0));
+        vector<vector<int>> b(y,vector<int>(z,0));
+        vector<vector<int>> c(x,vector<int>(z,0));
+        //输出A矩阵
+        for(int i = 0; i < x ; i++)
+            for(int j = 0; j < y; j++)
+                cin>>a[i][j];
+        //输入B矩阵
+        for(int i = 0; i < y; i++)
+            for(int j = 0; j < z; j++)
+                cin>>b[i][j];
+        //计算相乘矩阵
+        for(int i = 0; i < x; i++)
+            for(int j = 0; j < z; j++)
+                for(int m = 0; m < y; m++)
+                    c[i][j] += a[i][m]*b[m][j];
+        
+        for(auto v : c){
+            for(auto vv : v){
+                cout<< vv << " ";
+                }
+            cout<<endl;
+        }
+    
+    }
+    return 0;
+}
