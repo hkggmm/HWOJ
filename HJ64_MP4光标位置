@@ -1,0 +1,46 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main()
+{
+    int n;
+    string s;
+    while(cin>>n>>s){
+        int num = 1, first = 1;    //利用num记录当前光标所选中的歌曲，利用first记录当前页面第一个位置的歌曲号码
+        if(n <= 4){
+            for(int i = 0; i < s.size(); i++){
+                if( num == 1 && s[i] == 'U') num = n;
+                else if( num == n && s[i] == 'D') num = 1;
+                else if( s[i] == 'U') num--;
+                else num++;
+            }
+            for(int i = 1; i <= n - 1; i++)
+                cout<< i << ' ';
+            cout<<n<<endl;
+            cout<<num<<endl;
+        }else{
+            for(int i = 0; i < s.size(); i++){
+                if(first == 1 && num == 1 && s[i] == 'U'){
+                    first = n - 3;
+                    num = n;
+                }else if(first == n - 3 &&  num == n && s[i] == 'D'){
+                    first = 1;
+                    num = 1;
+                }else if(first != 1 && num  == first && s[i] == 'U'){
+                    first--;
+                    num--;
+                }else if(first != n - 3 && num == first + 3 && s[i] == 'D'){
+                    first++;
+                    num++;
+                }else if(s[i] == 'U') num--;
+                else num++;
+            }
+            for(int i = first; i < first + 3; i++)
+                cout<< i << ' ';
+            cout<< first + 3 <<endl;
+            cout<<num<<endl;
+        }
+    }
+    return 0;
+}
